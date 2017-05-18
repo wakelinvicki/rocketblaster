@@ -12,7 +12,7 @@ BasicGame.Game.prototype = {
 				this.starfield = this.add.tileSprite(0, 0, 800, 600, 'starfield');
 				//Add the ship onto the screen, set physics and the boundaries
 				ship = this.add.sprite((this.world.width / 2), this.world.height - 50, 'ship');
-				ship.anchor.setTo(0.5,0);
+				ship.anchor.setTo(0.5, 0);
 				this.physics.enable(ship, Phaser.Physics.ARCADE);
 				ship.body.collideWorldBounds = true;
 	},
