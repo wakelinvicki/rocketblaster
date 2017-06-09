@@ -2,6 +2,8 @@ BasicGame.Game = function (game) {};
 
 //Graphical objects
 var ship;
+var ufos; //Group of enemy UFOs which drop from the top of the screen
+var lives; //Group of lives which are collected
 
 var bullets; //Bullets which your spaceship fires
 var fireRate = 100; //Rate at which bullet are fired
@@ -23,6 +25,25 @@ BasicGame.Game.prototype = {
 				this.physics.enable(ship, Phaser.Physics.ARCADE);
 				ship.body.collideWorldBounds = true;
 
+				//Creating groups
+				//Create the UFOs group, set the physics and the boundaries
+				ufos = this.add.group();
+				this.physics.enable(ufos, Phaser.Physics.ARCADE);
+
+				ufos.setAll('outOfBoundsKill', true);
+				ufos.setAll('checkWorldBounds', true);
+				ufos.setAll('anchor.x', 0.5);
+				ufos.setAll('anchor.y', 0.5);
+
+				//Create the lives group, set the physics and boundaries
+				lives = this.add.group();
+				this.physics.enable(lives, Phaser.Physics.ARCADE);
+
+				lives.setAll('outOfBoundsKill', true);
+				lives.setAll('checkWorldBounds', true);
+				lives.setAll('anchor.x', 0.5);
+				lives.setAll('anchor.y', 0.5);
+
 				//Create the bullets group, set the physics, multiples and boundaries
 				bullets = this.add.group();
 				bullets.enableBody = true;
@@ -40,8 +61,9 @@ BasicGame.Game.prototype = {
 
 	update: function () {
 		//execute 'createUfo','createLife','moveShip','collisionDetection' function
+		this.createUfo();
+		this.createLife();
 		this.moveShip();
-
 	},
 
 	//moves ship and fires bullet from keyboard controls
@@ -64,6 +86,24 @@ BasicGame.Game.prototype = {
 			this.fireBullet();
 		}
 	},
+
+	//function executed during playing the game to create a UFO
+	createUfo: function () {
+		//Generate random number between 0 and 20
+		var random = this.rnd.integerInRange(0, 20);
+		//if random number equals 0 then create a ufo in a random x position and random y velocity
+		if (random === 0) {
+			//Generating random position in the X Axis
+			var randomX = this.rnd.integerInRange(0, this.world.width - 150);
+			//Creating a ufo from the ufos group and setting physics
+			var ufo = ufos.create(randomX, -50, 'ufo');
+			this.physics.enable(ufo, Phaser.Physics.ARCADE);
+			//Generating a random velocity
+			ufo.body.velocity.y = this.rnd.integerInRange(100, 600);
+		}
+	},
+
+	
 
 //Generate bullet and position in the x axis, set the velocity and play the audio
 fireBullet: function () {
