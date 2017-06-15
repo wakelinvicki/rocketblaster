@@ -86,7 +86,7 @@ BasicGame.Game.prototype = {
 			fill: '#fff'
 		});
 		//sets the lifeToal to 3 and output to the screen
-		lifeToal = 3;
+		lifeTotal = 3;
 		lifeTotalText.text = 'Lives: ' + lifeTotal;
 
 		timerText = this.add.text(350, 16, 'Time: 0', {
