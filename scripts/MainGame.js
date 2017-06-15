@@ -28,7 +28,7 @@ var timerText;
 //Misc Variables
 var cursors; //Keyboard control
 var gameOverText; //Game Over messaage
-var restartButtonl //Restart game button
+var restartButton; //Restart game button
 var gameOver;
 
 BasicGame.Game.prototype = {
@@ -132,7 +132,7 @@ BasicGame.Game.prototype = {
 		//Scroll the background
 		this.starfield.tilePostion.y += 2;
 		//if lifeTotal is less than 1 or seconds = 60 or gameOver varible = true then execute 'truegameOver' function
-		if (lifeToal < 1 || seconds == 60 || gameOver===true) {
+		if (lifeTotal < 1 || seconds == 60 || gameOver===true) {
 			this.gameOver();
 		}
 		//else execute 'createUfo', 'createLife', 'moveShip', 'collisionDetection' function
@@ -182,7 +182,7 @@ BasicGame.Game.prototype = {
 	},
 
 	//function executed during playing the game to create a life
-	createLife: function (){
+	createLife: function () {
 		//Generate random number between 0 and 500
 		var random = this.rnd.integerInRange(0, 500);
 		//if random number equals 0 then create a life in a random x position
@@ -219,7 +219,7 @@ BasicGame.Game.prototype = {
 	collideUfo: function (ship,ufo) {
 		explosionAudio.play();
 		ufo.kill();
-		var aniimation = this.add.sprite(ufo.body.x, ufo.body.y, 'kaboom');
+		var animation = this.add.sprite(ufo.body.x, ufo.body.y, 'kaboom');
 		animation.animations.add('explode');
 		animation.animations.play('explode', 30, false, true);
 		lifeTotal--;
@@ -272,12 +272,6 @@ gameOver: function () {
 //Restart function, executed when restart button is pressed
 restartGame: function () {
 	this.game.state.start('Game');
-},
-
-render: function() {
-	//Sprite debug info
-	this.game.debug.bodyInfo(ship, 32, 100);
-	this.game.debug.spriteBounds(ship);
 }
 
 };
