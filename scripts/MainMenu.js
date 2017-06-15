@@ -1,4 +1,4 @@
-BasicGame.MainMenu = fuction (game) { };
+BasicGame.MainMenu = function (game) { };
 
 var startButton;
 var starfield;
