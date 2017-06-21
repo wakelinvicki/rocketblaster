@@ -3,6 +3,8 @@ BasicGame.Game = function (game) {};
 //Graphical Object
 var ship;
 
+var bullets; //Bullets which your spaceship fires
+
 BasicGame.Game.prototype = {
 
 	create: function () {
