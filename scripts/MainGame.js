@@ -108,6 +108,7 @@ BasicGame.Game.prototype = {
 		//if random number equals 0 then create a life in a random x position
 		if (random === 0) {
 			var randomX = this.rnd.integerInRange(0, this.world.width - 150);
+			//create ufo and set physics
 			var life = lives.create(randomX, -50, 'life');
 			this.physics.enable(life, Phaser.Physics.ARCADE);
 			life.body.velocity.y = 150;

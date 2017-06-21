@@ -23,7 +23,7 @@ BasicGame.Preloader.prototype = {
 		this.load.image('ufo', 'assets/frieza.png')
 		this.load.image('life' 'assets/dBall.png')
 		this.load.image('bullet', 'assets/kiBlast.png');
-		this.load.spritesheet('lifeAnimation', 'assets/dBalls.png', 100, 100, 4);
+		//this.load.spritesheet('lifeAnimation', 'assets/dBalls.png', 100, 100, 4);
 	},
 
 	create: function () {
