@@ -20,6 +20,7 @@ BasicGame.Preloader.prototype = {
 		this.load.image('starfield', 'assets/background.png');
 		this.load.image('startButton', 'assets/startButton.png');
 		this.load.image('ship', 'assets/goku.png');
+		this.load.image('bullet', 'assets/bullet.png');
 	},
 
 	create: function () {
