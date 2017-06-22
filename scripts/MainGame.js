@@ -76,7 +76,7 @@ bullets.setAll('checkWorldBounds', true);
 //Setting up and adding the Score, Life and Timer to the Screen
 scoreText = this.add.text(16, 16, 'Score: 0', {
 font: '32px arial',
-fill: '#fff'
+fill: '#fcfa40'
 });
  //sets the score to 0 and output to the screen
 score = 0;
@@ -84,7 +84,7 @@ scoreText.text = "Score: " + score;
 
 lifeTotalText = this.add.text(this.world.width - 150, 16, 'Lives: 3', {
 font: '32px arial',
-fill: '#fff'
+fill: '#fcfa40'
 });
 //sets the lifeTotal to 3 and output to the screen
 lifeTotal = 3;
@@ -92,7 +92,7 @@ lifeTotalText.text = 'Lives: ' + lifeTotal;
 
 timerText = this.add.text(350, 16, 'Time: 0', {
 font: '32px arial',
-fill: '#fff'
+fill: '#fcfa40'
 });
 //setup timer
 timer = this.time.create(false);
