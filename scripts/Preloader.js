@@ -20,6 +20,8 @@ BasicGame.Preloader.prototype = {
 		this.load.image('starfield', 'assets/background.png');
 		this.load.image('startButton', 'assets/startButton.png');
 		this.load.image('ship', 'assets/goku.png');
+		this.load.image('ufo', 'assets/ufo.png')
+		this.load.image('life', 'assets/lives.png')
 		this.load.image('bullet', 'assets/kiBlast.png');
 		//this.load.spritesheet('lifeAnimation', 'assets/dBalls.png', 100, 100, 4);
 	},

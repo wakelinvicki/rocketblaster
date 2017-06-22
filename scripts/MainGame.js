@@ -2,6 +2,8 @@ BasicGame.Game = function (game) {};
 
 //Graphical Object
 var ship;
+var ufos;
+var lives;
 
 var bullets; //Bullets which your spaceship fires
 var fireRate = 100; //Ratte at which bullets are fired
@@ -23,6 +25,21 @@ BasicGame.Game.prototype = {
 		this.physics.enable(ship, Phaser.Physics.ARCADE);
 		ship.body.collideWorldBounds = true;
 
+		ufos = this.add.group();
+		this.physics.enable(ufos, Phaser.Physics.ARCADE);
+
+		ufos.setAll('outOfBoundsKill', true);
+		ufos.setAll('checkWorldBounds', true);
+		ufos.setAll('anchor.x' 0.5);
+		ufos.setAll('anchor.y', 0.5;)
+
+		lives = this.add.group();
+ 		this.physics.enable(lives, Phaser.Physics.ARCADE);
+
+		lives.setAll('outOfBoundsKill', true);
+		lives.setAll('checkWorldBounds', true);
+		lives.setAll('anchor.x', 0.5);
+		lives.setAll('anchor.y', 0.5);
 
 		//Create the bullets group, set the physics, multiples and boundaries
 		bullets = this.add.group();
@@ -41,6 +58,8 @@ BasicGame.Game.prototype = {
 
 	update: function () {
 		//execute 'createUfo' , 'createLife' , 'moveShip' , 'collisionDetection' function
+		this.createUfo();
+		this.createLife();
 		this.moveShip();
 	},
 
@@ -62,6 +81,26 @@ BasicGame.Game.prototype = {
 		//if space bar is pressed execute the 'fireBullet' function
 		if (this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
 			this.fireBullet();
+		}
+	},
+
+	createUfo: function () {
+		var random = this.rnd.integerInRange(0, 20);
+		if (random === 0) {
+			var randomX = this.rnd.integerInRange(0, this.world.width - 150);
+			var ufo = ufos.create(randomX, -50, 'ufo');
+			this.physics.enable(ufo, Phaser.Physics.ARCADE);
+			ufo.body.velocity.y = this.rnd.integerInRange(100, 600);
+		}
+	},
+
+	createLife: function () {
+		var random = this.rnd.integerInRange(0, 500);
+		if (random ===0) {
+			var randomX = this.rnd.integerInRange(0, this.world.width - 150);
+			var life - lives.create(randomX, -50, 'life');
+			this.physics.enable(life, Phaser.Physics.ARCADE);
+			life.body.velocity.y = 150;
 		}
 	},
 
