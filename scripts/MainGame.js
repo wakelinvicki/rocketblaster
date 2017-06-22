@@ -246,6 +246,9 @@ collectLife: function (ship, life) {
 life.kill();
 lifeTotal++;
 lifeTotalText.text = 'Lives: ' + lifeTotal;
+var animation = this.add.sprite(life.body.x, life.body.y, 'lifeAnimation');
+animation.animations.add('lifeAnimation');
+animation.animations.play('lifeAnimation', 30, false, true);
 },
 
 //Updates timer and outputs to the screen
