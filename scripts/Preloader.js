@@ -9,8 +9,8 @@ BasicGame.Preloader.prototype = {
 preload: function () {
 //Displays a loadng screen message while the assets are loaded into menory
 this.preloaderText = this.add.text(this.world.centerX, this.world.centerY, 'Loading...', {
-fontSize: '96px',
-fill: '#fff',
+fontSize: '96px seymour one',
+fill: '#fcfa40',
 align: 'center'
 });
 this.preloaderText.anchor.setTo(0.5, 0.5);

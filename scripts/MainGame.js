@@ -20,11 +20,6 @@ var music;
 var bulletAudio;
 var explosionAudio;
 
-//Timer Variables stores information about the timer
-var seconds; //Number of seconds game has been running
-var timer;
-var timerText;
-
 //Misc Variables
 var cursors; //Keyboard control
 var gameOverText; //Game Over message
@@ -75,7 +70,7 @@ bullets.setAll('checkWorldBounds', true);
 
 //Setting up and adding the Score, Life and Timer to the Screen
 scoreText = this.add.text(16, 16, 'Score: 0', {
-font: '32px',
+font: '32px seymour one',
 fill: '#fcfa40'
 });
  //sets the score to 0 and output to the screen
@@ -83,25 +78,16 @@ score = 0;
 scoreText.text = "Score: " + score;
 
 lifeTotalText = this.add.text(this.world.width - 150, 16, 'Lives: 3', {
-font: '32px',
+font: '32px seymour one',
 fill: '#fcfa40'
 });
 //sets the lifeTotal to 3 and output to the screen
 lifeTotal = 3;
 lifeTotalText.text = 'Lives: ' + lifeTotal;
 
-timerText = this.add.text(350, 16, 'Time: 0', {
-font: '32px',
-fill: '#fcfa40'
-});
-//setup timer
-timer = this.time.create(false);
-seconds = 0;
-timerText.text = 'Time: ' + seconds;
-
 gameOverText = this.add.text(this.world.centerX, this.world.centerY-50, 'Game Over', {
-font: '96px arial',
-fill: '#fff',
+font: '96px seymour one',
+fill: '#fcfa40',
 align: 'center'
 });
 gameOverText.anchor.set(0.5);
@@ -123,11 +109,6 @@ bulletAudio = this.add.audio('bullet');
 explosionAudio = this.add.audio('explosion');
 music = this.add.audio('music', 1, true);
 music.play('', 0, 1, true);
-
-//Set a TimerEvent to occur every second and start the timer
-timer.loop(1000, this.updateTimer, this);
-timer.start();
-},
 
 update: function () {
 //Scroll the background
@@ -246,15 +227,6 @@ collectLife: function (ship, life) {
 life.kill();
 lifeTotal++;
 lifeTotalText.text = 'Lives: ' + lifeTotal;
-var animation = this.add.sprite(life.body.x, life.body.y, 'lifeAnimation');
-animation.animations.add('lifeAnimation');
-animation.animations.play('lifeAnimation', 30, false, true);
-},
-
-//Updates timer and outputs to the screen
-updateTimer: function () {
-seconds++;
-timerText.text = 'Time: ' + seconds;
 },
 
 //function is executed when the game ends. Stops Ship, Kills all objects, stops timer, Display Restart Button
@@ -267,7 +239,6 @@ bullets.callAll('kill');
 music.stop();
 gameOverText.visible = true;
 restartButton.visible = true;
-timer.stop();
 },
 
 //Restart function, executed when restart button is pressed
