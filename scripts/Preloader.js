@@ -1,6 +1,6 @@
 var BasicGame = {};
 
-asicGame.Preloader = function (game) {
+BasicGame.Preloader = function (game) {
 this.ready = false;
 };
 
