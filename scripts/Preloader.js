@@ -20,7 +20,7 @@ this.load.image('logo', 'assets/logo.png');
 this.load.image('starfield', 'assets/background.png');
 this.load.image('startButton', 'assets/startButton.png');
 this.load.image('ship', 'assets/goku.png');
-this.load.image('ufo', 'assets/ufo.png');
+this.load.image('ufo', 'assets/frieza.png');
 this.load.image('life', 'assets/lives.png');
 this.load.image('bullet', 'assets/bullet.png');
 this.load.spritesheet('kaboom', 'assets/explode.png', 128, 128, 16);
