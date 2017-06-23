@@ -22,7 +22,7 @@ this.load.image('startButton', 'assets/startButton.png');
 this.load.image('ship', 'assets/goku.png');
 this.load.image('ufo', 'assets/frieza.png');
 this.load.image('life', 'assets/dBall.png');
-this.load.image('bullet', 'assets/bullet.png');
+this.load.image('bullet', 'assets/kiBlast.png');
 this.load.spritesheet('kaboom', 'assets/explode.png', 128, 128, 16);
 this.load.spritesheet('lifeAnimation', 'assets/lifeAnimation.png', 100, 100, 4);
 this.load.audio('music', ['assets/music.m4a', 'assets/music.mp3']);
