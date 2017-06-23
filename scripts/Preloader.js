@@ -26,7 +26,7 @@ this.load.image('bullet', 'assets/kiBlast.png');
 this.load.spritesheet('kaboom', 'assets/explode.png', 128, 128, 16);
 this.load.audio('music', ['assets/friezaTheme.mp3']);
 this.load.audio('bullet', ['assets/blast2.wav']);
-this.load.audio('explosion', ['assets/explosion.wav']);
+this.load.audio('explosion', ['assets/explosion2.wav']);
 },
 
 create: function () {
