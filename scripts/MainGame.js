@@ -273,4 +273,12 @@ restartGame: function () {
 this.game.state.start('Game');
 }
 
+render: function() {
+
+// Sprite debug info
+
+this.game.debug.bodyInfo(ship, 32, 100);
+this.game.debug.spriteBounds(ship);
+}
+
 };
