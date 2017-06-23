@@ -25,7 +25,7 @@ this.load.image('life', 'assets/dBall.png');
 this.load.image('bullet', 'assets/kiBlast.png');
 this.load.spritesheet('kaboom', 'assets/explode.png', 128, 128, 16);
 this.load.audio('music', ['assets/music.m4a', 'assets/music.mp3']);
-this.load.audio('bullet', ['assets/laser_human.mp3']);
+this.load.audio('bullet', ['assets/blast.wav']);
 this.load.audio('explosion', ['assets/explosion.wav']);
 },
 
