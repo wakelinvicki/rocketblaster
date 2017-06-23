@@ -130,6 +130,8 @@ timer.start();
 },
 
 update: function () {
+//Scroll the background
+this.starfield.tilePosition.y += 2;
 
 //if lifeTotal is less than 1 or seconds = 60 or gameOver variable = true then execute 'truegameOver' function
 if (lifeTotal < 1 || seconds == 60 || gameOver===true) {
