@@ -34,7 +34,7 @@ var gameOver;
 BasicGame.Game.prototype = {
 
 create: function () {
-//Specifying the physics game engine to ARCADE
+ //Specifying the physics game engine to ARCADE
 this.physics.startSystem(Phaser.Physics.ARCADE);
 //Adding the starfield, logo onto the screen
 this.starfield = this.add.tileSprite(0, 0, 800, 600, 'starfield');
@@ -78,7 +78,7 @@ scoreText = this.add.text(16, 16, 'Score: 0', {
 font: '32px arial',
 fill: '#fff'
 });
- //sets the score to 0 and output to the screen
+//sets the score to 0 and output to the screen
 score = 0;
 scoreText.text = "Score: " + score;
 
@@ -118,7 +118,7 @@ restartButton.visible = false;
 this.input.keyboard.addKeyCapture([Phaser.Keyboard.LEFT, Phaser.Keyboard.RIGHT, Phaser.Keyboard.SPACEBAR]);
 cursors = this.input.keyboard.createCursorKeys();
 
- //Load the audio into memory, starting music
+//Load the audio into memory, starting music
 bulletAudio = this.add.audio('bullet');
 explosionAudio = this.add.audio('explosion');
 music = this.add.audio('music', 1, true);
@@ -136,7 +136,7 @@ this.starfield.tilePosition.y += 2;
 if (lifeTotal < 1 || seconds == 60 || gameOver===true) {
 this.gameOver();
 }
-//else execut 'createUfo','createLife','moveShip','collisionDetection' function
+//else execute 'createUfo','createLife','moveShip','collisionDetection' function
 else {
 this.createUfo();
 this.createLife();
@@ -179,7 +179,7 @@ var ufo = ufos.create(randomX, -50, 'ufo');
 this.physics.enable(ufo, Phaser.Physics.ARCADE);
 //Generating a random velocity
 ufo.body.velocity.y = this.rnd.integerInRange(200, 300);
-}
+ }
 },
 
 //function executed during playing the game to create a Life
@@ -229,7 +229,7 @@ lifeTotalText.text = 'Lives: ' + lifeTotal;
 gameOver=true;
 },
 
-//function executed if there is collision between ufo and bullet. UFO is destroyed, animation & sound, increase score
+ //function executed if there is collision between ufo and bullet. UFO is destroyed, animation & sound, increase score
 destroyUfo: function (bullet, ufo) {
 explosionAudio.play();
 ufo.kill();
@@ -257,7 +257,7 @@ seconds++;
 timerText.text = 'Time: ' + seconds;
 },
 
-//function is executed when the game ends. Stops Ship, Kills all objects, stops timer, Display Restart Button
+ //function is executed when the game ends. Stops Ship, Kills all objects, stops timer, Display Restart Button
 gameOver: function () {
 ship.body.velocity.x = 0;
 ship.body.x = (this.world.width/2)-(ship.body.width/2);
@@ -273,7 +273,6 @@ timer.stop();
 //Restart function, executed when restart button is pressed
 restartGame: function () {
 this.game.state.start('Game');
-
 }
 
 };
